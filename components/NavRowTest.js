@@ -1,8 +1,8 @@
 import React from 'react'
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 
-export default function Navbar() {
-    const DATA = [
+export default function NavRowTest() {
+    const data = [
         {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
           title: 'First Bitch',
@@ -18,35 +18,33 @@ export default function Navbar() {
     ];
 
     const Item = ({ title }) => (
-        <View style={styles.item}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
+          <Text style={styles.text}>{title}</Text>
     );
       
-    const renderItem = ({ item }) => (
-        <Item title={item.title} />
-      );
+
        
     return (
         <View style={styles.navContainer}>
-            <FlatList data={DATA} 
-             renderItem={renderItem}
-             style={styles.flatList}>
-            </FlatList>
+            {data.map((entry)=>{
+                return (<Item key={entry.id}  title={entry.title} />)
+            })}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     navContainer:{
-      backgroundColor:'black',
-      paddingTop:134
+      flexDirection:"row",
+      backgroundColor:'pink',
+      justifyContent:'space-between',
     }
-    ,title:{
-      backgroundColor:'black',
-      color:'beige'
+    ,text:{
+      color:'black'
     },
     item:{
+        backgroundColor:'yellow',
       flexDirection:"row" 
-    }
+    },
+
+    
 })
