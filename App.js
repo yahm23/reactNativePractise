@@ -1,15 +1,13 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {View, StyleSheet, Image, Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 
 import HomeScreen from './components/HomeScreen';
 import Listings from './components/Listings';
 import Details from './components/Details';
 
 
-// const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
@@ -18,9 +16,9 @@ const App = () => {
     <View style={styles.container}>
       <NavigationContainer >
         <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Listings" component={Listings} />
-          <Tab.Screen name="Details" component={Details} />
+            {TabBarIcon("Home",HomeScreen,0)}
+            {TabBarIcon("Listings",Listings,0)}
+            {TabBarIcon("Details",Details,0)}
         </Tab.Navigator>
       </NavigationContainer>
     </View>
@@ -34,5 +32,18 @@ const styles = StyleSheet.create({
   }
 })
 
+const TabBarIcon = (name,component,imageIndex) => {
+  const images = [require('./icons/home2.jpg'), require('./icons/home2.jpg')]
+  return(
+    <Tab.Screen name={name} component={component} options={{ tabBarIcon: ({size,focused,color}) => {
+      return ( <Image 
+        style={{ 
+          width: size +10,
+          height: size,
+        }}
+        source={images[imageIndex]} /> );
+    }}}/>
+  )
+}
 
 export default App;  
