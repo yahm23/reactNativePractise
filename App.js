@@ -15,10 +15,10 @@ const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer >
-        <Tab.Navigator>
+        <Tab.Navigator styles={styles.tabs}>
             {TabBarIcon("Home",HomeScreen,0)}
-            {TabBarIcon("Listings",Listings,0)}
-            {TabBarIcon("Details",Details,0)}
+            {TabBarIcon("Listings",Listings,1)}
+            {TabBarIcon("Details",Details,2)}
         </Tab.Navigator>
       </NavigationContainer>
     </View>
@@ -29,17 +29,32 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     paddingTop:50,
+  },
+  tabs:{
+    paddingTop:150,
+
   }
 })
 
 const TabBarIcon = (name,component,imageIndex) => {
-  const images = [require('./icons/home2.jpg'), require('./icons/home2.jpg')]
+  const images = [
+    require('./icons/home.png'),
+    require('./icons/list.png'),
+    require('./icons/star.png'),
+  ]
   return(
-    <Tab.Screen name={name} component={component} options={{ tabBarIcon: ({size,focused,color}) => {
+    <Tab.Screen name={name} component={component} options={{ tabBarIcon: ({size,activeTintColor,color}) => {
       return ( <Image 
         style={{ 
-          width: size +10,
+          width: size,
           height: size,
+          // backgroundColor:color,
+          tintColor:color
+          
+        }}
+        tabBarOptions={{
+          activeTintColor: 'black',
+          inactiveTintColor: 'yellow',
         }}
         source={images[imageIndex]} /> );
     }}}/>
