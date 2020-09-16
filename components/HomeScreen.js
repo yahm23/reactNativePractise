@@ -1,30 +1,30 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 
-const Header = ({title}) => {
+const HomeScreen = () => {
 
   return (
-    <View style={styles.header}>
-      <Text style={styles.text}>{title}</Text>
+    <View style={styles.Home}>
+      <Text style={styles.text}>Welcome to the Home Page</Text>
       {/* <Image source={{uri:'https://miro.medium.com/fit/c/282/282/1*UaPiShzG0yPygw5cJ5HSXQ.png'}} style={styles.img}></Image> */}
     </View>
   )
 }
 
-Header.defaultProps ={
-    title:"Shopping List"
-}
+// HomeScreen.defaultProps ={
+//     title:"Shopping List"
+// }
 
 const styles = StyleSheet.create({
 
-  header:{
+  Home:{
     height:60,
     padding:15,
-    backgroundColor:'darkslateblue'
+    backgroundColor:'beige'
   },
 
   text:{
-    color:'#fff',
+    color:'black',
     fontSize:26,
     textAlign:"center"
   },
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Header;  
+export default HomeScreen;  

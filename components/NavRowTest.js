@@ -1,24 +1,31 @@
 import React from 'react'
 import {View, Text, FlatList, StyleSheet} from 'react-native';
+// import { withNavigation } from 'react-navigation';
+// import { useNavigation } from '@react-navigation/native';
+import * as RootNavigation from '../RootNavigation.js';
 
-export default function NavRowTest() {
+
+function NavRowTest({}) {
     const data = [
         {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'First Bitch',
+          title: 'Home',
         },
         {
           id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Second Item',
+          title: 'Listings',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Third Item',
+          title: 'My Account',
         },
     ];
+    // const navigation = useNavigation();
+
 
     const Item = ({ title }) => (
-          <Text style={styles.text}>{title}</Text>
+        <Text onPress={() =>RootNavigation.navigate(title)}
+        style={styles.text}>{title}</Text>
     );
       
 
@@ -35,11 +42,18 @@ export default function NavRowTest() {
 const styles = StyleSheet.create({
     navContainer:{
       flexDirection:"row",
-      backgroundColor:'pink',
-      justifyContent:'space-between',
+      backgroundColor:'beige',
+      paddingVertical:25,
+      paddingHorizontal: 15,
+      justifyContent:'space-around',
     }
     ,text:{
-      color:'black'
+      color:'black',
+      borderWidth:1,
+      width:100,
+      padding:10,
+      borderColor:"black"
+    //    :"center"
     },
     item:{
         backgroundColor:'yellow',
@@ -48,3 +62,6 @@ const styles = StyleSheet.create({
 
     
 })
+
+export default NavRowTest;
+// export default withNavigation(NavRowTest)
