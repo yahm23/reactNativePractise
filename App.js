@@ -1,61 +1,38 @@
-import React,{useEffect} from 'react';
-import {View,Text, StyleSheet, ScrollView} from 'react-native';
+import React from 'react';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { navigationRef, isReadyRef } from './RootNavigation';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-// import FlatTest from './components/flatTest';
-// import Header from './components/Header'
-// import Navbar from './components/Navbar'
-import NavRowTest from './components/NavRowTest';
+
 import HomeScreen from './components/HomeScreen';
 import Listings from './components/Listings';
+import Details from './components/Details';
 
 
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
 
-  useEffect(() => {
-    return () => {
-      isReadyRef.current = false
-    };
-  }, []);
-
   return (
-    <NavigationContainer 
-    ref={navigationRef}
-      onReady={() => {
-        isReadyRef.current = true;
-      }}
-    >
-
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Home' }}
-        />
-        <Stack.Screen name="Listings" component={Listings} />
-      </Stack.Navigator>
-
-
-      <NavRowTest ></NavRowTest>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <NavigationContainer >
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Listings" component={Listings} />
+          <Tab.Screen name="Details" component={Details} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </View>
   )
 }
+
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    paddingTop:60,
-    // paddingVertical:60,
+    paddingTop:50,
   }
 })
 
-export default App;  
 
-   {/* <View style={styles.container}>
-        <ScrollView>
-          <Text> Main Shit</Text> 
-        </ScrollView>
-      </View> */}
+export default App;  

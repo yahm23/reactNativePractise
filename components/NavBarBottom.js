@@ -5,7 +5,7 @@ import {View, Text, FlatList, StyleSheet} from 'react-native';
 import * as RootNavigation from '../RootNavigation.js';
 
 
-function NavRowTest({}) {
+function NavBarBottom({}) {
     const data = [
         {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -63,5 +63,5 @@ const styles = StyleSheet.create({
     
 })
 
-export default NavRowTest;
+export default NavBarBottom;
 // export default withNavigation(NavRowTest)
