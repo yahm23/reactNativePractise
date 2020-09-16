@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './components/HomeScreen';
 import Listings from './components/Listings';
 import Details from './components/Details';
+import Account from './components/Account';
 
 
 const Tab = createBottomTabNavigator();
@@ -19,6 +20,7 @@ const App = () => {
             {TabBarIcon("Home",HomeScreen,0)}
             {TabBarIcon("Listings",Listings,1)}
             {TabBarIcon("Details",Details,2)}
+            {TabBarIcon("Account",Account,3)}
         </Tab.Navigator>
       </NavigationContainer>
     </View>
@@ -40,6 +42,7 @@ const TabBarIcon = (name,component,imageIndex) => {
     require('./icons/home.png'),
     require('./icons/list.png'),
     require('./icons/star.png'),
+    require('./icons/user.png'),
   ]
   return(
     <Tab.Screen name={name}
