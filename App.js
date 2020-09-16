@@ -15,7 +15,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer >
-        <Tab.Navigator styles={styles.tabs}>
+        <Tab.Navigator tabBarOptions={TabBarStyles}>
             {TabBarIcon("Home",HomeScreen,0)}
             {TabBarIcon("Listings",Listings,1)}
             {TabBarIcon("Details",Details,2)}
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
   },
   tabs:{
     paddingTop:150,
-
   }
 })
 
@@ -43,22 +42,32 @@ const TabBarIcon = (name,component,imageIndex) => {
     require('./icons/star.png'),
   ]
   return(
-    <Tab.Screen name={name} component={component} options={{ tabBarIcon: ({size,activeTintColor,color}) => {
+    <Tab.Screen name={name}
+     component={component} options={{ tabBarIcon: ({size,color}) => {
       return ( <Image 
         style={{ 
           width: size,
           height: size,
-          // backgroundColor:color,
           tintColor:color
-          
-        }}
-        tabBarOptions={{
-          activeTintColor: 'black',
-          inactiveTintColor: 'yellow',
         }}
         source={images[imageIndex]} /> );
     }}}/>
   )
 }
 
+const TabBarStyles ={
+  tabStyle: {
+    paddingTop: 20,
+  },
+  style: {
+    height: 100,
+  },
+  labelPosition: 'below-icon',
+  labelStyle: {
+    marginTop: 5,
+    marginBottom: 4,
+  },
+  activeTintColor: 'tomato',
+  inactiveTintColor: 'grey',
+}
 export default App;  
