@@ -1,32 +1,30 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Platform, StyleSheet} from 'react-native';
 
 const HomeScreen = () => {
 
   return (
     <View style={styles.Home}>
-      <Text style={styles.text}>Welcome to the Home Page</Text>
-      {/* <Image source={{uri:'https://miro.medium.com/fit/c/282/282/1*UaPiShzG0yPygw5cJ5HSXQ.png'}} style={styles.img}></Image> */}
+      <Text style={styles.text}>Welcome to the Home Page, you're on a {Platform.OS === 'ios'? 'IOS':'Android'}</Text>
     </View>
   )
 }
 
-// HomeScreen.defaultProps ={
-//     title:"Shopping List"
-// }
 
 const styles = StyleSheet.create({
 
   Home:{
-    height:60,
-    padding:15,
+    // height:,
+    // padding:15,
     backgroundColor:'beige'
   },
 
   text:{
     color:'black',
     fontSize:26,
-    textAlign:"center"
+    textAlign:"center",
+    // display:'flex',
+    // flexShrink:1
   },
 
   img:{

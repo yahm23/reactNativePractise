@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import {View, StyleSheet, Image, Platform} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './components/HomeScreen';
-import Listings from './components/Listings';
+import Bookings from './components/Bookings';
 import Details from './components/Details';
 import Account from './components/Account';
 
@@ -18,7 +18,7 @@ const App = () => {
       <NavigationContainer >
         <Tab.Navigator tabBarOptions={TabBarStyles}>
             {TabBarIcon("Home",HomeScreen,0)}
-            {TabBarIcon("Listings",Listings,1)}
+            {TabBarIcon("Bookings",Bookings,1)}
             {TabBarIcon("Details",Details,2)}
             {TabBarIcon("Account",Account,3)}
         </Tab.Navigator>
@@ -30,7 +30,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    paddingTop:50,
+    paddingTop: Platform.OS === 'ios' ? 50 : 0,
   },
   tabs:{
     paddingTop:150,
@@ -63,14 +63,14 @@ const TabBarStyles ={
     paddingTop: 20,
   },
   style: {
-    height: 100,
+    height: Platform.OS === 'ios' ? 100 : 75,
   },
   labelPosition: 'below-icon',
   labelStyle: {
     marginTop: 5,
-    marginBottom: 4,
+    marginBottom: 5,
   },
-  activeTintColor: 'tomato',
+  activeTintColor: 'red',
   inactiveTintColor: 'grey',
 }
 export default App;  

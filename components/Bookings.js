@@ -1,19 +1,14 @@
 import React, {useState} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 
-const Listings = () => {
+const Bookings = () => {
 
   return (
     <View style={styles.Home}>
-      <Text style={styles.text}>Listings Bitch</Text>
-      {/* <Image source={{uri:'https://miro.medium.com/fit/c/282/282/1*UaPiShzG0yPygw5cJ5HSXQ.png'}} style={styles.img}></Image> */}
+      <Text style={styles.text}>Bookings Bitch</Text>
     </View>
   )
 }
-
-// Listings.defaultProps ={
-//     title:"Shopping List"
-// }
 
 const styles = StyleSheet.create({
 
@@ -40,4 +35,4 @@ const styles = StyleSheet.create({
 
 })
 
-export default Listings;  
+export default Bookings;  
