@@ -15,6 +15,24 @@ const App = () => {
   const [darkMode, setdarkMode] = useState(false);
   const toggleSwitch = () => setdarkMode(previousState => !previousState);
 
+  const TabBarStyles ={
+    tabStyle: {
+      paddingTop: 20,
+    },
+    keyboardHidesTabBar: true,
+    style: {
+      height: Platform.OS === 'ios' ? 100 : 75,
+      backgroundColor:darkMode?'#5c5b5d':'#fafafa'
+    },
+    labelPosition: 'below-icon',
+   
+    labelStyle: {
+      marginTop: 15,
+      marginBottom: 5,
+    },
+    activeTintColor: darkMode?'white':'red',
+    inactiveTintColor: darkMode?'#d0d0d0':'grey',
+  }
   
   const TabBarIcon = (name,component,imageIndex) => {
     const images = [
@@ -76,21 +94,4 @@ const App = () => {
 
 
 
-const TabBarStyles ={
-  tabStyle: {
-    paddingTop: 20,
-  },
-  keyboardHidesTabBar: true,
-  style: {
-    height: Platform.OS === 'ios' ? 100 : 75,
-  },
-  labelPosition: 'below-icon',
-  // style:{backgroundColor:"f3f3f3"},
-  labelStyle: {
-    marginTop: 5,
-    marginBottom: 5,
-  },
-  activeTintColor: 'red',
-  inactiveTintColor: 'grey',
-}
 export default App;  

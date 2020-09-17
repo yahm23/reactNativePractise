@@ -3,6 +3,7 @@ import {View, Image, Platform, StyleSheet} from 'react-native';
 // import { Card } from 'react-native-elements'
 
 import { TextInput } from 'react-native';
+import PageDefault from './PageDefault';
 
 const HomeScreen = ({darkMode}) => {
   const[inputText,setInput] = useState('Search for something');
@@ -11,10 +12,6 @@ const HomeScreen = ({darkMode}) => {
   const onFocus = () => setFocus(true)
 
   const styles = StyleSheet.create({
-    home:{
-      flex:1,
-      backgroundColor: darkMode?'#2f2f2f':'white',
-    },
     inputContainer:{
       display:"flex",
       flexDirection:"row",
@@ -23,12 +20,9 @@ const HomeScreen = ({darkMode}) => {
       borderRadius:25,
       borderWidth: 1,
       alignItems:"center",
-      
       backgroundColor:darkMode?(focused? 'white':"#2f2f2f"):(focused? 'white':"#fafafa"),
-      
       margin:25,
     },
-
     icon:{
       height:20,
       width:20,
@@ -38,7 +32,6 @@ const HomeScreen = ({darkMode}) => {
       tintColor: darkMode?'white':'red'
     },
 
-    
     input:{ 
       height: 40,
       color:darkMode?'white':'grey',
@@ -62,22 +55,25 @@ const HomeScreen = ({darkMode}) => {
 
   })
 
-  return (
-    <View style={styles.home}>
+
+  const Home = () => {
+    return(
       <View style={styles.inputContainer}>
-      <Image  style={styles.icon} source={require('../icons/search.png')} />
-        <TextInput 
-        onFocus={ () => onFocus() }
-        style={styles.input}
-        clearTextOnFocus={true}
-        onChangeText={text => setInput(text)}
-        value={inputText}
+        <Image  style={styles.icon} source={require('../icons/search.png')} />
+          <TextInput 
+          onFocus={ () => onFocus() }
+          style={styles.input}
+          clearTextOnFocus={true}
+          onChangeText={text => setInput(text)}
+          value={inputText}
         />
 
       </View>
-    </View>
+    )
+  }
+  return (
+    <PageDefault darkMode={darkMode} component={Home}></PageDefault>
   )
-
 
 }
 
