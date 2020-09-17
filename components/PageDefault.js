@@ -7,6 +7,7 @@ const PageDefault = ({darkMode, component}) => {
   const styles = StyleSheet.create({
     home:{
       flex:1,
+      padding:30,
       backgroundColor: darkMode?'#2f2f2f':'white',
     }
   })

@@ -1,11 +1,21 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import PageDefault from './PageDefault';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Login from './Login';
+import HomeScreen from './HomeScreen';
 
 const Account = ({darkMode}) => {
-  
+  const Stack = createStackNavigator()
   const Account =()=> {
-    return(<Text style={styles.text}>Account Bitch</Text>)
+    return(
+      <View>
+        {/* <Text style={styles.text}>Account Bitch</Text> */}
+        <TouchableOpacity style={styles.button} ><Text style={styles.textButton}>Test</Text></TouchableOpacity>
+
+      </View>
+      )
   }
 
   const styles = StyleSheet.create({
@@ -14,12 +24,16 @@ const Account = ({darkMode}) => {
       fontSize:26,
       textAlign:"center"
     },
-    img:{
-      margin:30,
-      width:100,
-      height:100,
-      justifyContent:"center",
-      borderRadius:100/2
+    textButton:{
+      color:darkMode?'black':'grey',
+      fontSize:26,
+      textAlign:"center"
+    },
+    button:{
+      alignItems: "center",
+      backgroundColor: "#DDDDDD",
+      padding: 10
+      
     }
   })
   

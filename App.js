@@ -61,8 +61,9 @@ const App = () => {
   const styles = StyleSheet.create({
     container:{
       backgroundColor: darkMode?'#2f2f2f':'white',
-  
+      
       flex:1,
+     
       paddingTop: Platform.OS === 'ios' ? 50 : 0,
     },
     tabs:{
@@ -73,21 +74,28 @@ const App = () => {
   
   return (
     <View style={styles.container}>
-      <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={darkMode ? "#fafafa" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={darkMode}
-      />
-      <NavigationContainer >
-        <Tab.Navigator tabBarOptions={TabBarStyles}>
-            {TabBarIcon("Home",HomeScreen,0)}
-            {TabBarIcon("Bookings",Bookings,1)}
-            {TabBarIcon("Details",Details,2)}
-            {TabBarIcon("Account",Account,3)}
-        </Tab.Navigator>
-      </NavigationContainer>
+     
+        <Switch
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={darkMode ? "#fafafa" : "#f4f3f4"}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={toggleSwitch}
+          value={darkMode}
+          style={{ 
+            transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }],
+            flexDirection:"row-reverse",
+            alignSelf:"flex-end"
+          }}
+        />
+        <NavigationContainer >
+          <Tab.Navigator tabBarOptions={TabBarStyles}>
+              {TabBarIcon("Home",HomeScreen,0)}
+              {TabBarIcon("Bookings",Bookings,1)}
+              {TabBarIcon("Details",Details,2)}
+              {TabBarIcon("Account",Account,3)}
+          </Tab.Navigator>
+        </NavigationContainer>
+       
     </View>
   )
 }
