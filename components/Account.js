@@ -12,8 +12,11 @@ const Account = ({darkMode}) => {
     return(
       <View>
         {/* <Text style={styles.text}>Account Bitch</Text> */}
-        <TouchableOpacity style={styles.button} ><Text style={styles.textButton}>Test</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')} ><Text style={styles.textButton}>Test</Text></TouchableOpacity>
+        <Stack.Navigator>
 
+          <Stack.Screen name="Login" component={Login} />
+        </Stack.Navigator>
       </View>
       )
   }

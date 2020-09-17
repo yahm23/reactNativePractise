@@ -2,11 +2,13 @@ import React,{useState} from 'react';
 import {View, StyleSheet, Image,Switch, Platform} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './components/HomeScreen';
 import Bookings from './components/Bookings';
 import Details from './components/Details';
 import Account from './components/Account';
+import Login from './components/Login';
 
 
 const Tab = createBottomTabNavigator();
@@ -14,6 +16,8 @@ const Tab = createBottomTabNavigator();
 const App = () => {
   const [darkMode, setdarkMode] = useState(false);
   const toggleSwitch = () => setdarkMode(previousState => !previousState);
+
+  const Stack = createStackNavigator();
 
   const TabBarStyles ={
     tabStyle: {
@@ -94,6 +98,7 @@ const App = () => {
               {TabBarIcon("Details",Details,2)}
               {TabBarIcon("Account",Account,3)}
           </Tab.Navigator>
+          
         </NavigationContainer>
        
     </View>
