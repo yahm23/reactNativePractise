@@ -5,7 +5,7 @@ import PageDefault from './PageDefault';
 const Details = ({darkMode}) => {
   
   const Details =()=> {
-    return(<Text style={styles.text}>Details Bitch</Text>)
+    return(<Text style={styles.text}>Details Rename</Text>)
   }
 
   const styles = StyleSheet.create({
