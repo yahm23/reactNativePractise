@@ -130,7 +130,7 @@ android {
 
     defaultConfig {
         applicationId "com.awesomeproject2"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
@@ -184,6 +184,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+        implementation 'io.intercom.android:intercom-sdk-base:5.+'
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 

@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
-import {View, Image, Platform, StyleSheet} from 'react-native';
+import {View, Image, Platform, StyleSheet, Button} from 'react-native';
 // import { Card } from 'react-native-elements'
 
 import { TextInput } from 'react-native';
 import PageDefault from './PageDefault';
+import Intercom from 'react-native-intercom';
+// or…
+// var Intercom = require('react-native-intercom');
 
 const HomeScreen = ({darkMode}) => {
   const[inputText,setInput] = useState('Search for something');
   const[focused,setFocus] = useState(false);
-
+  
   const onFocus = () => setFocus(true)
-
+  
   const styles = StyleSheet.create({
     inputContainer:{
       display:"flex",
@@ -31,15 +34,16 @@ const HomeScreen = ({darkMode}) => {
       marginLeft:15,
       tintColor: darkMode?'white':'red'
     },
-
+    
     input:{ 
       height: 40,
       color:darkMode?'white':'grey',
       flex:1,
       paddingRight:25,
     },
-
+    
     text:{
+      
       color:'black',
       fontSize:26,
       textAlign:"center",
@@ -57,8 +61,13 @@ const HomeScreen = ({darkMode}) => {
 
 
   const Home = () => {
+    Intercom.registerIdentifiedUser({ userId: 'Bob' });
+    Intercom.logEvent('viewed_screen', { extra: 'metadata' });
+
+
     return(
-      <View style={styles.inputContainer}>
+      <View >
+        <View style={styles.inputContainer}>
         <Image  style={styles.icon} source={require('../icons/search.png')} />
           <TextInput 
           onFocus={ () => onFocus() }
@@ -67,7 +76,8 @@ const HomeScreen = ({darkMode}) => {
           onChangeText={text => setInput(text)}
           value={inputText}
         />
-
+      </View>
+        <Button title="String bitch" onPress={()=>Intercom.displayMessageComposer()}></Button>
       </View>
     )
   }

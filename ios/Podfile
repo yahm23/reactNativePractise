@@ -8,6 +8,8 @@ target 'AwesomeProject2' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'react-native-intercom', :path => '../node_modules/react-native-intercom'
+
   target 'AwesomeProject2Tests' do
     inherit! :complete
     # Pods for testing
